@@ -1,0 +1,12 @@
+
+[package]
+name = "my-project"
+version = "0.1.0"
+authors = ["runner"]
+edition = "2021"
+
+[dependencies]
+ldk-node = "0.4.3"
+rustyline = "12.0.0"
+lightning-invoice = "0.33.2"
+lnurl-rs = "0.8.0"

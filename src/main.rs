@@ -143,15 +143,9 @@ fn main() {
                                 }
                             };
 
-                            let url = match ln_addr.lnurlp_url() {
-                                Ok(url) => url,
-                                Err(_) => {
-                                    println!("Failed to get LNURL from address");
-                                    continue;
-                                }
-                            };
-
-                            match client.make_request(&url.to_string()) {
+                            let url = ln_addr.lnurlp_url();
+                            
+                            match client.make_request(&url) {
                                 Ok(LnUrlResponse::LnUrlPayResponse(pay_response)) => {
                                     match client.get_invoice(&pay_response, amount_msats, None, None) {
                                         Ok(invoice_data) => {
